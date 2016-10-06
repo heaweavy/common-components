@@ -1,0 +1,10 @@
+*.class
+target/
+bin/
+*.log
+
+.idea
+*.iml
+mybatis-gen/
+*.iml
+
