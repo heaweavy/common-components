@@ -34,10 +34,10 @@ public class MemoryCache {
         MemoryCache.dataCacheTime = configure.getDataCacheTime();
         MemoryCache.dataCacheUpdatePeriod = configure.getDataCacheUpdatePeriod();
     }
-    public Object query(DatabaseOperater operater, Class entityClass) throws NoSuchMethodException {
+    public Object query(DatabaseOperator operater, Class entityClass) throws NoSuchMethodException {
         return leaderTable.query(operater,entityClass);
     }
-    public int update(DatabaseOperater operater, Class entityClass) throws NoSuchMethodException {
+    public int update(DatabaseOperator operater, Class entityClass) throws NoSuchMethodException {
         return leaderTable.update(operater,entityClass);
     }
     public static int getMaxTableSize() {

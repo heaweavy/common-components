@@ -1,7 +1,7 @@
 package com.github.heaweavy.common.components.cache.data;
 
 
-import com.github.heaweavy.common.components.cache.DatabaseOperater;
+import com.github.heaweavy.common.components.cache.DatabaseOperator;
 import com.github.heaweavy.common.components.cache.MemoryCache;
 import com.google.gson.Gson;
 
@@ -24,7 +24,7 @@ public class LeaderTable {
     private Gson gson = new Gson();
     //TODO 需要升级淘汰算法
     //查询操作交由使用者自定义
-    public Object query(DatabaseOperater operater, Class entityClass) throws NoSuchMethodException {
+    public Object query(DatabaseOperator operater, Class entityClass) throws NoSuchMethodException {
         DataList dataListTemp = null;
         //判断缓存中是否有这张表
 
@@ -127,7 +127,7 @@ public class LeaderTable {
             }
         }
     }
-    private Object queryWithoutUnrelevance(DatabaseOperater operater, Class entityClass) throws NoSuchMethodException {
+    private Object queryWithoutUnrelevance(DatabaseOperator operater, Class entityClass) throws NoSuchMethodException {
         DataList dataListTemp = null;
         //判断缓存中是否有这张表
 
@@ -238,7 +238,7 @@ public class LeaderTable {
      * @return
      * @throws NoSuchMethodException
      */
-    public int update( DatabaseOperater operater,Class entityClass) throws NoSuchMethodException {
+    public int update(DatabaseOperator operater, Class entityClass) throws NoSuchMethodException {
 //        System.out.println("更新数据");
         synchronized (this.dataList) {
             Object obj = this.queryWithoutUnrelevance(operater, entityClass);
@@ -266,7 +266,7 @@ public class LeaderTable {
             list.add(0, valueObject);
         }
     }
-    private Method getMethod(DatabaseOperater operater,String methodName){
+    private Method getMethod(DatabaseOperator operater, String methodName){
         Method methods[] = operater.getClass().getMethods();
         Method methods2[] = new Method[2];
         Method queryCacheMd = null;
