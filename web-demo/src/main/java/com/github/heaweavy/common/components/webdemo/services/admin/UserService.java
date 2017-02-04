@@ -1,7 +1,8 @@
-package com.schoolguard.commander.service.admin;
+package com.github.heaweavy.common.components.webdemo.services.admin;
 
-import com.schoolguard.commander.helper.Pager;
-import com.schoolguard.common.admin.entity.User;
+
+import com.github.heaweavy.common.components.datasource.admin.entity.User;
+import com.github.heaweavy.common.components.webdemo.helper.Pager;
 
 import java.util.List;
 

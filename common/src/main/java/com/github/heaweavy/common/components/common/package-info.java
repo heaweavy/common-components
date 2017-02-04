@@ -1,1 +1,1 @@
-package com.github.heaweavy.common.components.webdemo.services;
+package com.github.heaweavy.common.components.common;

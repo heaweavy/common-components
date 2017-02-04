@@ -5,7 +5,7 @@
 <head lang="zh">
     <meta charset="UTF-8" />
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'/>
-    <title>登陆校园卫士</title>
+    <title>login-heaweavy-web-demo</title>
     <!-- Bootstrap 3.3.2 -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -25,7 +25,7 @@
         <b>Admin</b>LTE
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">校园卫士运营平台</p>
+        <p class="login-box-msg">heaweavy-web-demo</p>
         <form th:action="@{/login}" th:object="${credential}" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="用户名" th:field="*{username}"/>

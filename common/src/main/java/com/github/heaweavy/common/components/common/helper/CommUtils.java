@@ -1,4 +1,4 @@
-package com.schoolguard.common.helper;
+package com.github.heaweavy.common.components.common.helper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

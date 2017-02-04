@@ -1,7 +1,6 @@
-package com.schoolguard.commander.helper;
+package com.github.heaweavy.common.components.webdemo.helper;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by 2 on 2015/10/27.

@@ -14,7 +14,7 @@
 
 // Copyed from mindrot source code
 //package org.mindrot.jbcrypt;
-package com.schoolguard.common.helper;
+package com.github.heaweavy.common.components.common.helper;
 
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;

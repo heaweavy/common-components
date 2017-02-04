@@ -1,4 +1,4 @@
-package com.schoolguard.commander.controllers.authentication;
+package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
 /**
  * Created by Rogers on 15-3-24.

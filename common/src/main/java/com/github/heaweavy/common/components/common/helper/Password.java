@@ -1,4 +1,4 @@
-package com.schoolguard.common.helper;
+package com.github.heaweavy.common.components.common.helper;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -54,5 +54,6 @@ public class Password {
         }
         long end = System.currentTimeMillis();
         System.out.println("程序运行时间："+(end-start)+"ms");
+        System.out.println(Password.hash(password));
     }
 }

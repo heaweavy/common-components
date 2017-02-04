@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.schoolguard.common.admin.mapper.UserMapper" >
-    <resultMap id="userMap" type="com.schoolguard.common.admin.entity.User" >
+<mapper namespace="com.github.heaweavy.common.components.datasource.admin.mapper.UserMapper" >
+    <resultMap id="userMap" type="com.github.heaweavy.common.components.datasource.admin.entity.User" >
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="account" property="account" jdbcType="VARCHAR" />
@@ -15,7 +15,7 @@
     </resultMap>
 
     <insert id="createUser" parameterType="user" useGeneratedKeys="true" keyProperty="id">
-     insert into admin.user_tbl
+     insert into user_tbl
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="null != name">
                 name,
@@ -65,7 +65,7 @@
     </insert>
 
     <update id="updateUser" parameterType="user">
-        update admin.user_tbl
+        update user_tbl
         <set>
             <if test="null != account">
                 account = #{account},
@@ -93,7 +93,7 @@
     </update>
 
     <delete id="deleteUser" parameterType="int">
-        delete from admin.user_tbl
+        delete from user_tbl
         where id = #{id}
     </delete>
 
@@ -113,7 +113,7 @@
     </select>
 
     <sql id="common_getUser">
-        select * from admin.user_tbl
+        select * from user_tbl
     </sql>
 
     <select id="queryUsers" parameterType="map" resultMap="userMap">
@@ -129,7 +129,7 @@
     </select>
 
     <sql id="common_queryUsers">
-        from admin.user_tbl
+        from user_tbl
         <where>
             <if test="null != query and '' != query">
                 name like #{query} or account like #{query} or mobile like #{query} or email like #{query}

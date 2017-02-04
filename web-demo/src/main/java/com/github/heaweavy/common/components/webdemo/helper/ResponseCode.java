@@ -1,4 +1,4 @@
-package com.schoolguard.commander.helper;
+package com.github.heaweavy.common.components.webdemo.helper;
 
 /**
  * Created by Rogers on 15-6-11.

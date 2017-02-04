@@ -1,4 +1,4 @@
-package com.schoolguard.commander.controllers.authentication;
+package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;

@@ -13,6 +13,9 @@
         <module>cache</module>
         <module>common</module>
         <module>status</module>
+        <module>web-demo</module>
+        <module>web-server-demo</module>
+        <module>data-source-demo</module>
     </modules>
 
     <properties>
@@ -60,7 +63,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <finalName>kaoqin-${project.artifactId}-${project.version}</finalName>
+        <finalName>components-${project.artifactId}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,4 +1,4 @@
-package com.schoolguard.common.admin.entity;
+package com.github.heaweavy.common.components.datasource.admin.entity;
 
 import org.apache.ibatis.type.Alias;
 

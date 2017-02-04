@@ -1,4 +1,4 @@
-package com.schoolguard.common.admin.entity;
+package com.github.heaweavy.common.components.datasource.admin.entity;
 
 import java.util.HashMap;
 import java.util.Map;

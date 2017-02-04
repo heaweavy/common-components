@@ -1,7 +1,7 @@
-package com.schoolguard.commander.controllers.authentication;
+package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
-import com.schoolguard.commander.config.AppConstants;
-import com.schoolguard.common.admin.entity.Role;
+import com.github.heaweavy.common.components.datasource.admin.entity.Role;
+import com.github.heaweavy.common.components.webdemo.config.AppConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

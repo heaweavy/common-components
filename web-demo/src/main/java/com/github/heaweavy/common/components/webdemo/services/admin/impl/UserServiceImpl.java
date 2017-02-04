@@ -1,11 +1,11 @@
-package com.schoolguard.commander.service.admin.impl;
+package com.github.heaweavy.common.components.webdemo.services.admin.impl;
 
 
-import com.schoolguard.commander.helper.Pager;
-import com.schoolguard.commander.service.admin.UserService;
-import com.schoolguard.common.admin.entity.User;
-import com.schoolguard.common.admin.mapper.UserMapper;
-import com.schoolguard.common.helper.Password;
+import com.github.heaweavy.common.components.common.helper.Password;
+import com.github.heaweavy.common.components.datasource.admin.entity.User;
+import com.github.heaweavy.common.components.datasource.admin.mapper.UserMapper;
+import com.github.heaweavy.common.components.webdemo.helper.Pager;
+import com.github.heaweavy.common.components.webdemo.services.admin.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Created by Rogers on 15-4-2.
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
@@ -136,7 +136,7 @@ public class UserServiceImpl implements UserService{
         return userMapper.queryUsers(param);
     }
 
-    public void updateUserPassword(User user,String password,String newPassword,String newPasswordSecond) throws Exception{
+    public void updateUserPassword(User user, String password, String newPassword, String newPasswordSecond) throws Exception{
         checkArgument(user != null, "user is null");
         checkArgument(!StringUtils.isEmpty(password) && !StringUtils.isEmpty(newPassword) && !StringUtils.isEmpty(newPasswordSecond),"请正确输入密码");
         checkArgument(Password.check(password, user.getPassword()), "旧密码与原密码不匹配");

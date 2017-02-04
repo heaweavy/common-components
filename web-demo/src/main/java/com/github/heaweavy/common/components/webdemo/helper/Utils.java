@@ -3,10 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.schoolguard.commander.helper;
-
-import com.schoolguard.common.school.entity.GradeClass;
-import com.schoolguard.common.school.entity.SchoolGrade;
+package com.github.heaweavy.common.components.webdemo.helper;
 
 import java.lang.reflect.Method;
 import java.text.ParseException;
@@ -54,40 +51,6 @@ public class Utils {
             }
         }
         return null;
-    }
-
-    //班级排序
-    public static List<GradeClass> sortClass(List<GradeClass> list) {
-        Collections.sort(list, new Comparator<GradeClass>() {
-            @Override
-            public int compare(GradeClass g1, GradeClass g2) {
-                if (g1.getSectionType().equals(g2.getSectionType())) {
-                    if (g1.getStartYear().equals(g2.getStartYear())) {
-                        return g1.getName().compareTo(g2.getName());
-                    } else {
-                        return g2.getStartYear().compareTo(g1.getStartYear());
-                    }
-                } else {
-                    return g1.getSectionType().compareTo(g2.getSectionType());
-                }
-            }
-        });
-        return list;
-    }
-
-    //年级排序
-    public static List<SchoolGrade> sortGrade(List<SchoolGrade> list) {
-        Collections.sort(list, new Comparator<SchoolGrade>() {
-            @Override
-            public int compare(SchoolGrade g1, SchoolGrade g2) {
-                if (g1.getSection().getSectionType() == g2.getSection().getSectionType()) {
-                    return g2.getStartYear() - g1.getStartYear();
-                } else {
-                    return g1.getSection().getSectionType() - g2.getSection().getSectionType();
-                }
-            }
-        });
-        return list;
     }
 
     /**

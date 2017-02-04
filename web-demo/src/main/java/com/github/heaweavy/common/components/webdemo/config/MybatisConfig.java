@@ -1,4 +1,4 @@
-package com.schoolguard.commander.config;
+package com.github.heaweavy.common.components.webdemo.config;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -34,8 +34,8 @@ public class MybatisConfig {
     @Bean(name = "mapperScannerConfigure")
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer configure = new MapperScannerConfigurer();
-        //configure.setBasePackage("com.schoolguard.common.admin.mapper; com.schoolgurad.common.school.mapper");
-        configure.setBasePackage("com.schoolguard.common");
+        //configure.setBasePackage("com.github.heaweavy.common.components.datasource.admin.mapper; com.github.heaweavy.common.components.datasource.school.mapper");
+        configure.setBasePackage("com.github.heaweavy.common.components.datasource");
         return configure;
     }
 }

@@ -1,6 +1,6 @@
-package com.schoolguard.commander.config;
+package com.github.heaweavy.common.components.webdemo.config;
 
-import com.schoolguard.commander.controllers.authentication.AuthInterceptor;
+import com.github.heaweavy.common.components.webdemo.controllers.authentication.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

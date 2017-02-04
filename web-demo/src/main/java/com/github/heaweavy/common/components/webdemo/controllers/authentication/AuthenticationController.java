@@ -1,8 +1,8 @@
-package com.schoolguard.commander.controllers.authentication;
+package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
+import com.github.heaweavy.common.components.datasource.admin.entity.User;
+import com.github.heaweavy.common.components.webdemo.services.admin.UserService;
 import com.google.code.kaptcha.servlet.KaptchaExtend;
-import com.schoolguard.commander.service.admin.UserService;
-import com.schoolguard.common.admin.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/")
-public class AuthenticationController{
+public class AuthenticationController {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
     private static KaptchaExtend kaptchaExtend = new KaptchaExtend();
     private static final String captchaFieldName = "captcha";

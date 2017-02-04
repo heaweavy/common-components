@@ -1,6 +1,6 @@
-package com.schoolguard.commander.controllers.authentication;
+package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
-import com.schoolguard.commander.config.AppConstants;
+import com.github.heaweavy.common.components.webdemo.config.AppConstants;
 
 import javax.servlet.http.HttpSession;
 

@@ -1,4 +1,4 @@
-package com.schoolguard.commander.config;
+package com.github.heaweavy.common.components.webdemo.config;
 
 /**
  * Created by Rogers on 15-4-7.

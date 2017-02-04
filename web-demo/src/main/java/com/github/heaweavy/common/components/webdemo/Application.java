@@ -1,4 +1,4 @@
-package com.schoolguard.commander;
+package com.github.heaweavy.common.components.webdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,8 @@
-package com.schoolguard.common.admin.mapper;
+package com.github.heaweavy.common.components.datasource.admin.mapper;
 
 
-import com.schoolguard.common.admin.entity.User;
+
+import com.github.heaweavy.common.components.datasource.admin.entity.User;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.schoolguard.common.helper;
+package com.github.heaweavy.common.components.common.helper;
 
 import com.google.common.base.Strings;
 
