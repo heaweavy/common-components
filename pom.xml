@@ -16,6 +16,7 @@
         <module>web-demo</module>
         <module>web-server-demo</module>
         <module>data-source-demo</module>
+        <module>search-engine</module>
     </modules>
 
     <properties>
