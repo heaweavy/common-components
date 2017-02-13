@@ -10,7 +10,7 @@ public class SentenceSplitterTest {
     @Test
     public void testSplitter(){
         SentenceSplitter sp = new SentenceSplitter();
-        sp.customSplit("丁中福攻城狮逆袭单身狗，工程师迎娶白富美，走上人生巅峰");
+        sp.getSegment("丁中福攻城狮逆袭单身狗，工程师迎娶白富美，走上人生巅峰");
         System.out.println(sp.getKeyWord("丁中福攻城狮逆袭单身狗，工程师迎娶白富美，走上人生巅峰",5));
 //        System.out.println(sp.getKeyWord("丁中福攻城狮逆袭单身狗，迎娶白富美，走上人生巅峰",10));
         /*System.out.println(sp.suggest("mayun","威廉王子发表演说 呼吁保护野生动物\n" +
