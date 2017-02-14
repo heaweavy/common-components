@@ -14,7 +14,7 @@
         <module>common</module>
         <module>status</module>
         <module>web-demo</module>
-        <module>web-server-demo</module>
+        <module>web-server1-demo</module>
         <module>data-source-demo</module>
         <module>search-engine</module>
     </modules>
@@ -25,6 +25,7 @@
         <resteasy.version>3.0.10.Final</resteasy.version>
         <guice.version>3.0</guice.version>
         <env>dev</env>
+        <jackson.version>2.5.4</jackson.version>
     </properties>
 
     <profiles>
