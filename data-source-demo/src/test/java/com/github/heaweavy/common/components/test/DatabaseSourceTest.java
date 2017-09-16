@@ -23,6 +23,7 @@ public class DatabaseSourceTest {
     @Before
     public void init() throws Exception{
         dds = new DynamicDataSource();
+        //设置c3p0
         dds.getDataSource().setDriverClass("com.mysql.jdbc.Driver");
         dds.getDataSource().setJdbcUrl("jdbc:mysql://localhost:3306/schoolims?serverTimezone=UTC");
         dds.getDataSource().setUser("root");

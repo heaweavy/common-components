@@ -1,11 +1,17 @@
 package com.github.heaweavy.common.components.webdemo.controllers.authentication;
 
+import com.github.heaweavy.common.components.common.bean.DynamicRegister;
+import com.github.heaweavy.common.components.common.helper.Pager;
 import com.github.heaweavy.common.components.datasource.admin.entity.User;
+import com.github.heaweavy.common.components.webdemo.config.DynamicInitializer;
 import com.github.heaweavy.common.components.webdemo.services.admin.UserService;
 import com.google.code.kaptcha.servlet.KaptchaExtend;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,10 +19,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  * Created by Rogers on 15-3-18.
@@ -34,6 +43,9 @@ public class AuthenticationController {
 
     @Autowired
     private Credential currentUser;
+
+    @Autowired
+    private Pager pager;
 
     /**
      * 验证码
@@ -61,7 +73,21 @@ public class AuthenticationController {
                                    BindingResult bindingResult,
                                    HttpServletRequest request,
                                    ModelMap model) throws Exception{
-       
+        /*DynamicRegister.instance().register("dynamicAction","com.github.heaweavy.common.components.common.bean.DynamicAction");
+        ApplicationContext applicationContext = DynamicInitializer.getApplicationContext();
+        DispatcherServlet dispatcherServlet = applicationContext.getBean(DispatcherServlet.class);
+        assert dispatcherServlet != null;
+        GenericApplicationContext configurableApplicationContext = (GenericApplicationContext) dispatcherServlet.getWebApplicationContext();
+        Field refreshField = GenericApplicationContext.class.getDeclaredField("refreshed");
+        refreshField.setAccessible(true);
+        refreshField.set(configurableApplicationContext,false);
+        refreshField.setAccessible(false);
+        dispatcherServlet.refresh();*/
+        /*Class dispatcherServletClass = DispatcherServlet.class;
+        Method method = dispatcherServletClass.getDeclaredMethod("initStrategies", ApplicationContext.class);
+        method.setAccessible(true);
+        method.invoke(dispatcherServlet, applicationContext);
+        method.setAccessible(false);*/
         if(bindingResult.hasErrors()){
             return "login";
         }

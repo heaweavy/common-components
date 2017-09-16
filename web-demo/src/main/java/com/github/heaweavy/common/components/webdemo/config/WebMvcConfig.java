@@ -29,7 +29,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
     @Bean
     public MappedInterceptor getMappedInterceptor(){
         MappedInterceptor interceptor = new MappedInterceptor(null,
-                new String[]{"/login", "/captcha", "/static/**"},
+                new String[]{"/login", "/captcha", "/static/**","/dynamic"},
                 authInterceptor);
         return interceptor;
     }
