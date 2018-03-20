@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.heaweavy.common.components.mysql_test.mapper.ChildrenMapper" >
+    <resultMap id="childrenMap" type="com.github.heaweavy.common.components.mysql_test.entity.Children" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+        <result column="enabled" property="enabled" jdbcType="BOOLEAN" />
+    </resultMap>
+
+    <insert id="createChildren" parameterType="children" useGeneratedKeys="true" keyProperty="id">
+     insert into t_children
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != userId">
+                user_id,
+            </if>
+            <if test="null != parentId">
+                parent_id,
+            </if>
+            <if test="null != enabled">
+                enabled,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="null != userId">
+                #{userId},
+            </if>
+            <if test="null != parentId">
+                #{parentId},
+            </if>
+            <if test="null != enabled">
+                #{enabled},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateChildren" parameterType="children">
+        update t_children
+        <set>
+            <if test="null != userId">
+                user_id = #{userId},
+            </if>
+            <if test="null != parentId">
+                parent_id=#{parentId},
+            </if>
+            <if test="null != enabled">
+                enabled=#{enabled},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteChildren" parameterType="long">
+        delete from t_children
+        where id = #{id}
+    </delete>
+
+    <select id="getChildrenById" parameterType="int" resultMap="childrenMap">
+        <include refid="common_getChildren"/>
+        where id = #{id}
+    </select>
+
+    <select id="getChildrenByMobile" parameterType="string" resultMap="childrenMap">
+        <include refid="common_getChildren"/>
+        where mobile = #{mobile}
+    </select>
+
+    <select id="getChildrenByAccount" parameterType="string" resultMap="childrenMap">
+        <include refid="common_getChildren"/>
+        where account = #{account}
+    </select>
+
+    <sql id="common_getChildren">
+        select * from t_children
+    </sql>
+
+    <select id="queryChildren" parameterType="map" resultMap="childrenMap">
+        select *
+        <include refid="common_queryChildren"/>
+        order by created_at desc
+        offset #{offset} limit #{limit}
+    </select>
+
+    <select id="countChildren" parameterType="map" resultType="int">
+        select count(1)
+        <include refid="common_queryChildren"/>
+    </select>
+
+    <sql id="common_queryChildren">
+        from t_children
+        <where>
+            <if test="null != query and '' != query">
+                parent_id like #{query} or user_id like #{query}
+            </if>
+        </where>
+    </sql>
+</mapper>

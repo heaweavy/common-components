@@ -1,0 +1,5 @@
+# 自动加载
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+
+org.springframework.context.ApplicationListener=\
+com.github.heaweavy.common.components.mysql_test.config.StarterHolderListener

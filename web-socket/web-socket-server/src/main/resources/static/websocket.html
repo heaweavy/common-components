@@ -1,0 +1,48 @@
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>websocket</title>
+    <script src="js/websocket.js"></script>
+    <link href="css/websocket.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="whole_area">
+    <!--左 -->
+    <div class="chart_friend_area">
+
+    </div>
+    <!--中，聊天内容显示区-->
+    <div class="chart_area">
+        <div class="chart_msg">
+            <ul id="chart_msg">
+
+            </ul>
+        </div>
+        <div class="face_icon">
+
+        </div>
+        <div class="send_msg">
+            <textarea id="send_text"></textarea>
+        </div>
+        <div class="send_clear">
+            <a class="send_but" onclick="sendContent()" accesskey="c">
+                发送
+            </a>
+        </div>
+        <div class="send_clear">
+            <input type="file" id="file_input" multiple >
+            <a class="send_but" onclick="sendFile()" accesskey="c">
+                发送文件
+            </a>
+        </div>
+    </div>
+    <!--右，好友列表区-->
+    <div class="friend_area">
+
+    </div>
+    <div class="close_but">
+
+    </div>
+</div>
+</body>
+</html>

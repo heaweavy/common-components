@@ -19,9 +19,11 @@
         <module>rest-client2</module>
         <module>web-flux-server-demo</module>
         <module>web-flux-client-demo</module>
+        <module>web-socket</module>
         <module>data-source-demo</module>
         <module>search-engine</module>
         <module>shared</module>
+        <module>test</module>
     </modules>
 
     <properties>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!-- 打包成jar包后，package声明alias方式似乎有问题-->
+        <!--<package name="com.github.heaweavy.common.components.datasource.admin.entity"/>-->
+        <typeAlias type="com.github.heaweavy.common.components.mysql_test.entity.User" alias="user"/>
+        <typeAlias type="com.github.heaweavy.common.components.mysql_test.entity.Person" alias="person"/>
+        <typeAlias type="com.github.heaweavy.common.components.mysql_test.entity.Children" alias="children"/>
+    </typeAliases>
+
+    <environments default="production">
+        <environment id="production">
+            <transactionManager type="JDBC">
+                <property name="JDBC.DefaultAutoCommit" value="false" />
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver.encoding" value="UTF8"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
+                <!-- set transaction isolation level to 2, TRANSACTION_READ_COMMITTED, PostgreSQL's default -->
+                <property name="defaultTransactionIsolationLevel" value="2"/>
+                <property name="poolMaximumActiveConnections" value="16"/>
+                <property name="poolMaximumIdleConnections" value="5"/>
+                <property name="poolMaximumCheckoutTime" value="20000"/>
+                <property name="poolTimeToWait" value="20000"/>
+                <!-- set pg_stat_activity.application_name for this connection -->
+                <property name="driver.ApplicationName" value="heaweavy-components-core"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--<package name="com.github.heaweavy.common.components.datasource.domain.admin.mapper"/>-->
+        <mapper resource="mapper/admin/UserMapper.xml"/>
+        <mapper resource="mapper/admin/PersonMapper.xml"/>
+        <mapper resource="mapper/admin/ChildrenMapper.xml"/>
+    </mappers>
+</configuration>

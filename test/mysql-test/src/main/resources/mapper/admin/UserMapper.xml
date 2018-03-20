@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.heaweavy.common.components.mysql_test.mapper.UserMapper" >
+    <resultMap id="userMap" type="com.github.heaweavy.common.components.mysql_test.entity.User" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="account" property="account" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="role" property="role" jdbcType="VARCHAR" />
+        <result column="enabled" property="enabled" jdbcType="BOOLEAN" />
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <insert id="createUser" parameterType="user" useGeneratedKeys="true" keyProperty="id">
+     insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != name">
+                name,
+            </if>
+            <if test="null != account">
+                account,
+            </if>
+            <if test="null != password">
+                password,
+            </if>
+            <if test="null != mobile">
+                mobile,
+            </if>
+            <if test="null != email">
+                email,
+            </if>
+            <if test="null != enabled">
+                enabled,
+            </if>
+            <if test="null != role">
+                role,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="null != name">
+                #{name},
+            </if>
+            <if test="null != account">
+                #{account},
+            </if>
+            <if test="null != password">
+                #{password},
+            </if>
+            <if test="null != mobile">
+                #{mobile},
+            </if>
+            <if test="null != email">
+                #{email},
+            </if>
+            <if test="null != enabled">
+                #{enabled},
+            </if>
+            <if test="null != role">
+                #{role},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="user">
+        update t_user
+        <set>
+            <if test="null != account">
+                account = #{account},
+            </if>
+            <if test="null != name">
+                name=#{name},
+            </if>
+            <if test="null != password">
+                password=#{password},
+            </if>
+            <if test="null != mobile">
+                mobile=#{mobile},
+            </if>
+            <if test="null != email">
+                email=#{email},
+            </if>
+            <if test="null != enabled">
+                enabled=#{enabled},
+            </if>
+            <if test="null != role">
+                role = #{role}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="long">
+        delete from t_user
+        where id = #{id}
+    </delete>
+
+    <select id="getUserById" parameterType="int" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where id = #{id}
+    </select>
+
+    <select id="getUserByMobile" parameterType="string" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where mobile = #{mobile}
+    </select>
+
+    <select id="getUserByAccount" parameterType="string" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where account = #{account}
+    </select>
+
+    <sql id="common_getUser">
+        select * from t_user
+    </sql>
+
+    <select id="queryUsers" parameterType="map" resultMap="userMap">
+        select *
+        <include refid="common_queryUsers"/>
+        order by created_at desc
+        offset #{offset} limit #{limit}
+    </select>
+
+    <select id="countUsers" parameterType="map" resultType="int">
+        select count(1)
+        <include refid="common_queryUsers"/>
+    </select>
+
+    <sql id="common_queryUsers">
+        from t_user
+        <where>
+            <if test="null != query and '' != query">
+                name like #{query} or account like #{query} or mobile like #{query} or email like #{query}
+                or role like #{query}
+            </if>
+        </where>
+    </sql>
+</mapper>

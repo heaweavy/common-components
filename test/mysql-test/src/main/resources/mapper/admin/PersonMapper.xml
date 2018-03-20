@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.heaweavy.common.components.mysql_test.mapper.PersonMapper" >
+    <resultMap id="userMap" type="com.github.heaweavy.common.components.mysql_test.entity.Person" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="user_id" property="userId" jdbcType="BIGINT" />
+        <result column="real_name" property="realName" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="zip_code" property="zipCode" jdbcType="VARCHAR" />
+        <result column="we_chat_name" property="weChatName" jdbcType="VARCHAR" />
+        <result column="we_chat_open_id" property="weChatOpenId" jdbcType="VARCHAR" />
+        <result column="qq_name" property="qqName" jdbcType="VARCHAR" />
+        <result column="qq" property="qq" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="married" property="married" jdbcType="BOOLEAN" />
+    </resultMap>
+
+    <insert id="createPerson" parameterType="person" useGeneratedKeys="true" keyProperty="id">
+     insert into t_person
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="null != userId">
+                user_id,
+            </if>
+            <if test="null != realName">
+                real_name,
+            </if>
+            <if test="null != address">
+                address,
+            </if>
+            <if test="null != age">
+                age,
+            </if>
+            <if test="null != zipCode">
+                zip_code,
+            </if>
+            <if test="null != weChatName">
+                we_chat_name,
+            </if>
+            <if test="null != weChatOpenId">
+                we_chat_open_id,
+            </if>
+            <if test="null != qqName">
+                qq_name,
+            </if>
+            <if test="null != qq">
+                qq,
+            </if>
+            <if test="null != phone">
+                phone,
+            </if>
+            <if test="null != mobile">
+                mobile,
+            </if>
+            <if test="null != married">
+                married,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="null != userId">
+                #{userId},
+            </if>
+            <if test="null != realName">
+                #{realName},
+            </if>
+            <if test="null != address">
+                #{address},
+            </if>
+            <if test="null != age">
+                #{age},
+            </if>
+            <if test="null != zipCode">
+                #{zipCode},
+            </if>
+            <if test="null != weChatName">
+                #{weChatName},
+            </if>
+            <if test="null != weChatOpenId">
+                #{weChatOpenId},
+            </if>
+            <if test="null != qqName">
+                #{qqName},
+            </if>
+            <if test="null != qq">
+                #{qq},
+            </if>
+            <if test="null != phone">
+                #{phone},
+            </if>
+            <if test="null != mobile">
+                #{mobile},
+            </if>
+            <if test="null != married">
+                #{married},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updatePerson" parameterType="person">
+        update t_person
+        <set>
+            <if test="null != userId">
+                user_id=#{userId},
+            </if>
+            <if test="null != realName">
+                real_name=#{realName},
+            </if>
+            <if test="null != address">
+                address=#{address},
+            </if>
+            <if test="null != age">
+                age=#{age},
+            </if>
+            <if test="null != zipCode">
+                zip_code=#{zipCode},
+            </if>
+            <if test="null != weChatName">
+                we_chat_name=#{weChatName},
+            </if>
+            <if test="null != weChatOpenId">
+                we_chat_open_id=#{weChatOpenId},
+            </if>
+            <if test="null != qqName">
+                qq_name=#{qqName},
+            </if>
+            <if test="null != qq">
+                qq=#{qq},
+            </if>
+            <if test="null != phone">
+                phone=#{phone},
+            </if>
+            <if test="null != mobile">
+                mobile=#{mobile},
+            </if>
+            <if test="null != married">
+                married=#{married},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePerson" parameterType="int">
+        delete from t_person
+        where id = #{id}
+    </delete>
+
+    <select id="getPersonById" parameterType="int" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where id = #{id}
+    </select>
+
+    <select id="getPersonByMobile" parameterType="string" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where mobile = #{mobile}
+    </select>
+
+    <select id="getPersonByAccount" parameterType="string" resultMap="userMap">
+        <include refid="common_getUser"/>
+        where account = #{account}
+    </select>
+
+    <sql id="common_getUser">
+        select * from t_person
+    </sql>
+
+    <select id="queryPersons" parameterType="map" resultMap="userMap">
+        select *
+        <include refid="common_queryPersons"/>
+        order by created_at desc
+        offset #{offset} limit #{limit}
+    </select>
+
+    <select id="countPersons" parameterType="map" resultType="int">
+        select count(1)
+        <include refid="common_queryPersons"/>
+    </select>
+
+    <sql id="common_queryPersons">
+        from t_person
+        <where>
+            <if test="null != query and '' != query">
+                user_id like #{query} or real_name like #{query} or address like #{query} or phone like #{query}
+                or zip_code like #{query}
+            </if>
+        </where>
+    </sql>
+</mapper>
