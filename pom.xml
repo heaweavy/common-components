@@ -23,6 +23,8 @@
         <module>data-source-demo</module>
         <module>search-engine</module>
         <module>shared</module>
+        <module>nio-netty</module>
+        <module>sdk</module>
         <module>test</module>
     </modules>
 

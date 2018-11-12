@@ -16,19 +16,4 @@ public class MybatisModule extends XMLMyBatisModule {
         setClassPathResource("mybatis-config.xml");
 
     }
-
-    public Properties getMybatisProperties() {
-        Properties properties = new Properties();
-        try{
-            properties.load(MybatisModule.class.getClassLoader().getResourceAsStream("mybatis.properties"));
-        }catch (FileNotFoundException exception){
-            throw new RuntimeException("Load properties failed: " + exception.getMessage());
-        } catch (IOException exception){
-            throw new RuntimeException("Load properties failed: " + exception.getMessage());
-        } catch (Exception e){
-            throw new RuntimeException(e);
-        }
-        return properties;
-    }
-
 }
