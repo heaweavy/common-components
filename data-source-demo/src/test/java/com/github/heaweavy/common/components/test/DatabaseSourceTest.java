@@ -24,10 +24,14 @@ public class DatabaseSourceTest {
     public void init() throws Exception{
         dds = new DynamicDataSource();
         //设置c3p0
-        dds.getDataSource().setDriverClass("com.mysql.jdbc.Driver");
-        dds.getDataSource().setJdbcUrl("jdbc:mysql://localhost:3306/schoolims?serverTimezone=UTC");
-        dds.getDataSource().setUser("root");
-        dds.getDataSource().setPassword("11001100");
+//        dds.getDataSource().setDriverClass("com.mysql.jdbc.Driver");
+//        dds.getDataSource().setJdbcUrl("jdbc:mysql://localhost:3306/schoolims?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai");
+//        dds.getDataSource().setUser("root");
+//        dds.getDataSource().setPassword("11001100");
+        dds.getDataSource().setDriverClass("oracle.jdbc.driver.OracleDriver");
+        dds.getDataSource().setJdbcUrl("jdbc:oracle:thin:@//112.74.175.245:1521/orclspdb");
+        dds.getDataSource().setUser("huinan_isp_dba");
+        dds.getDataSource().setPassword("123456");
         dds.getDataSource().setInitialPoolSize(5);
         dds.getDataSource().setMinPoolSize(5);
         dds.getDataSource().setMaxPoolSize(15);
@@ -39,9 +43,16 @@ public class DatabaseSourceTest {
     public void testConnent() throws SQLException {
         SqlSession session =  this.sqlSessionFactory.openSession();
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        User user = userMapper.getUserById(1);
+//        User user = new User();
+//        user.setAccount( "account" );
+//        user.setName( "我是谁" );
+//        user.setEmail( "hh@qq.com" );
+//        user.setMobile( "18819457900" );
+//        user.setRole( "AA:aa:BB:bb" );
+//        userMapper.createUser(user);
+        User userRes = userMapper.getUserById(1);
 //        List<Map<String,Object>> result = session.selectList("SELECT * FROM user_tbl");
 //        Connection connection =session.getConnection();
-        assertNotNull(user);
+        assertNotNull(userRes);
     }
 }

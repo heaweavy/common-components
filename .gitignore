@@ -8,3 +8,4 @@ bin/
 mybatis-gen/
 *.iml
 
+*.out
