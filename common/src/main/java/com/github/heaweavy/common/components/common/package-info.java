@@ -1,1 +1,0 @@
-package com.github.heaweavy.common.components.common;

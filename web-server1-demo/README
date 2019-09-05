@@ -1,3 +1,0 @@
-启动时，可以选择是否对 某些设置 进行初始化：
-
-    mvn spring-boot:run -Dcommand.argName=true -Dspring.profiles.active=dev

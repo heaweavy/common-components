@@ -1,3 +1,0 @@
-<auditor>
-    <appender name="slf4j" class="ch.qos.logback.audit.client.SLF4JAuditAppender"/>
-</auditor>
