@@ -1,4 +1,4 @@
-package com.dxtech.common.components.wechat;
+package com.github.heaweavy.common.components.wechat;
 
 import com.github.heaweavy.common.components.wechat.exception.WeiXinApiException;
 import junit.framework.Test;
