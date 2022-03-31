@@ -19,7 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>com.github.heaweavy.common.components.webserver1.Application</start-class>
-        <spring-boot.version>1.2.2.RELEASE</spring-boot.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
         <guava.version>18.0</guava.version>
     </properties>
 
